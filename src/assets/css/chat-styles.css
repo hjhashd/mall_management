@@ -1,0 +1,140 @@
+/* Gemini Chat - 全局样式与主题 (重构版) */
+/* 设计目标：清新、大方、兼具美感与动感 */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+/* ------------------------- */
+/* --- 根容器与背景设置 --- */
+/* ------------------------- */
+.gemini-chat-container {
+    /* -- 背景图片：你可以替换为你喜欢的任何图片URL -- */
+    --chat-bg-image: url('https://images.unsplash.com/photo-1591370874773-6702e8f12fd8?q=80&w=2940&auto=format&fit=crop');
+
+    /* -- 核心模糊与字体设置 -- */
+    --glass-blur-radius: 20px; /* 增强背景模糊半径，更显朦胧美 */
+    --chat-font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --border-radius-lg: 24px; /* 大圆角 */
+    --border-radius-md: 16px; /* 中圆角 */
+    --border-radius-sm: 12px; /* 小圆角 */
+    --transition-fast: 0.2s ease-out;
+    --transition-medium: 0.4s ease-out;
+
+    font-family: var(--chat-font-family);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    padding: 20px; /* 为窗口提供外边距 */
+    box-sizing: border-box;
+}
+
+/* 动态背景 */
+.gemini-chat-container::before {
+    content: '';
+    position: absolute;
+    top: -5%; left: -5%;
+    width: 110%;
+    height: 110%;
+    background-image: var(--chat-bg-image);
+    background-size: cover;
+    background-position: center;
+    animation: backgroundPan 30s ease-in-out infinite alternate;
+    z-index: -1;
+}
+
+/* ------------------------- */
+/* --- 主题颜色变量 --- */
+/* ------------------------- */
+
+/* 浅色主题 - 清新蓝紫 */
+.gemini-chat-container {
+    /* -- 毛玻璃面板颜色 -- */
+    --glass-bg-primary: rgba(245, 247, 255, 0.55);
+    --glass-bg-secondary: rgba(255, 255, 255, 0.7);
+    --glass-bg-tertiary: rgba(236, 239, 255, 0.5);
+    --glass-border-color: rgba(255, 255, 255, 0.5);
+
+    /* -- 文字颜色 -- */
+    --text-color-primary: #12123c;
+    --text-color-secondary: #5e6090;
+    --text-color-tertiary: #9295c8;
+
+    /* -- 动作/高亮颜色 -- */
+    --accent-color: #7f5eff;
+    --accent-color-hover: #6a49e0;
+    --accent-glow-color: rgba(127, 94, 255, 0.5);
+
+    /* -- 消息气泡颜色 -- */
+    --bubble-bg-peer: #ffffff;
+    --bubble-bg-self: linear-gradient(135deg, #7f5eff, #6c5ce7);
+    --bubble-text-peer: #2d316a;
+    --bubble-text-self: #ffffff;
+
+    /* -- 阴影 -- */
+    --shadow-sm: 0 2px 10px rgba(60, 66, 135, 0.07);
+    --shadow-md: 0 5px 25px rgba(60, 66, 135, 0.12);
+}
+
+/* 深色主题 - 星空灰蓝 */
+.gemini-chat-container.theme-dark {
+    /* -- 毛玻璃面板颜色 -- */
+    --glass-bg-primary: rgba(28, 32, 68, 0.5);
+    --glass-bg-secondary: rgba(50, 56, 110, 0.65);
+    --glass-bg-tertiary: rgba(36, 41, 85, 0.45);
+    --glass-border-color: rgba(255, 255, 255, 0.12);
+
+    /* -- 文字颜色 -- */
+    --text-color-primary: #f0f2ff;
+    --text-color-secondary: #b5b9e8;
+    --text-color-tertiary: #8185b8;
+
+    /* -- 动作/高亮颜色 -- */
+    --accent-color: #9d8fff;
+    --accent-color-hover: #b8acff;
+    --accent-glow-color: rgba(157, 143, 255, 0.5);
+
+    /* -- 消息气泡颜色 -- */
+    --bubble-bg-peer: rgba(50, 56, 110, 0.8);
+    --bubble-bg-self: linear-gradient(135deg, #9d8fff, #8b82ff);
+    --bubble-text-peer: #f0f2ff;
+    --bubble-text-self: #1c2044;
+
+    /* -- 阴影 -- */
+    --shadow-sm: 0 3px 12px rgba(5, 7, 25, 0.25);
+    --shadow-md: 0 6px 30px rgba(5, 7, 25, 0.35);
+}
+
+
+/* ------------------------- */
+/* --- 基础毛玻璃样式 --- */
+/* ------------------------- */
+.glass-panel {
+    background: var(--glass-bg-primary);
+    backdrop-filter: blur(var(--glass-blur-radius));
+    -webkit-backdrop-filter: blur(var(--glass-blur-radius));
+    border: 1px solid var(--glass-border-color);
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+/* ------------------------- */
+/* --- 动画效果 --- */
+/* ------------------------- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes backgroundPan {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 10% 5%; }
+}
+
+@keyframes pulse-glow {
+    0% { box-shadow: 0 0 4px var(--accent-glow-color), 0 0 8px var(--accent-glow-color); }
+    50% { box-shadow: 0 0 16px var(--accent-glow-color), 0 0 24px var(--accent-glow-color); }
+    100% { box-shadow: 0 0 4px var(--accent-glow-color), 0 0 8px var(--accent-glow-color); }
+}

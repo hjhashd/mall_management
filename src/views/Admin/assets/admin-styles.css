@@ -1,0 +1,232 @@
+/* admin-styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap'); /* Google Font */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+
+/* ==================================
+   1. Base Variables (Default Theme)
+   ================================== */
+:root {
+  /* Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f7f9fc;
+  --bg-hover: #eff4ff;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --border-color: #e2e8f0;
+  --accent-color: #4a6cf7;
+  --accent-color-hover: #3b57d6;
+  --danger-color: #ef4444;
+  --shadow-color: rgba(74, 108, 247, 0.1);
+  --backdrop-filter: none;
+
+  /* Layout & Typography */
+  --font-family-base: 'Inter', sans-serif;
+  --border-radius-sm: 0.5rem;
+  --border-radius-md: 0.75rem;
+  --sidebar-width-open: 260px;
+  --sidebar-width-collapsed: 80px;
+  --navbar-height: 70px;
+  --transition-speed: 0.3s;
+
+  /* Background Image */
+  --body-bg-image: none;
+}
+
+/* ==================================
+   2. Theme Definitions
+   ================================== */
+
+/* --- Theme: Default --- */
+.theme-scope-global[data-theme="default"],
+.theme-scope-layout[data-theme="default"],
+.theme-scope-sidebar[data-theme="default"] .sidebar,
+.theme-scope-navbar[data-theme="default"] .admin-navbar,
+.theme-scope-navbar[data-theme="default"] .tabs-bar {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f7f9fc;
+  --bg-hover: #eff4ff;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --border-color: #e2e8f0;
+  --accent-color: #4a6cf7;
+  --accent-color-hover: #3b57d6;
+  --shadow-color: rgba(74, 108, 247, 0.1);
+}
+.theme-scope-global[data-theme="default"] {
+  --body-bg-image: none;
+}
+
+/* --- Theme: Glassmorphism (毛玻璃) --- */
+.theme-scope-global[data-theme="glass"],
+.theme-scope-layout[data-theme="glass"],
+.theme-scope-sidebar[data-theme="glass"] .sidebar,
+.theme-scope-navbar[data-theme="glass"] .admin-navbar,
+.theme-scope-navbar[data-theme="glass"] .tabs-bar {
+  --bg-primary: rgba(30, 41, 59, 0.85);
+  --bg-secondary: rgba(15, 23, 42, 0.8);
+  --bg-hover: rgba(56, 189, 248, 0.2);
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --border-color: rgba(148, 163, 184, 0.3);
+  --accent-color: #38bdf8;
+  --accent-color-hover: #0ea5e9;
+  --shadow-color: rgba(56, 189, 248, 0.2);
+  --backdrop-filter: blur(10px);
+  --border-radius-sm: 0.75rem;
+  --border-radius-md: 1rem;
+}
+.theme-scope-global[data-theme="glass"] {
+  --body-bg-image: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+/* --- Theme: Tech (科技感) --- */
+.theme-scope-global[data-theme="tech"],
+.theme-scope-layout[data-theme="tech"],
+.theme-scope-sidebar[data-theme="tech"] .sidebar,
+.theme-scope-navbar[data-theme="tech"] .admin-navbar,
+.theme-scope-navbar[data-theme="tech"] .tabs-bar {
+  --bg-primary: #131a2b;
+  --bg-secondary: #0a0f1c;
+  --bg-hover: rgba(0, 255, 255, 0.1);
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --border-color: rgba(0, 255, 255, 0.2);
+  --accent-color: #00ffff;
+  --accent-color-hover: #00e0e0;
+  --shadow-color: rgba(0, 255, 255, 0.15);
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+}
+.theme-scope-global[data-theme="tech"] {
+  --body-bg-image: none;
+}
+
+/* --- Theme: Fresh (清新风) --- */
+.theme-scope-global[data-theme="fresh"],
+.theme-scope-layout[data-theme="fresh"],
+.theme-scope-sidebar[data-theme="fresh"] .sidebar,
+.theme-scope-navbar[data-theme="fresh"] .admin-navbar,
+.theme-scope-navbar[data-theme="fresh"] .tabs-bar {
+  --bg-primary: #ffffff;
+  --bg-secondary: #ecfdf5;
+  --bg-hover: #d1fae5;
+  --text-primary: #0f172a;
+  --text-secondary: #047857;
+  --border-color: #6ee7b7;
+  --accent-color: #059669;
+  --accent-color-hover: #047857;
+  --shadow-color: rgba(5, 150, 105, 0.25);
+  --border-radius-sm: 0.75rem;
+  --border-radius-md: 1rem;
+}
+.theme-scope-global[data-theme="fresh"] {
+  --body-bg-image: radial-gradient(circle at 10% 20%, rgba(236, 253, 245, 0.8) 0%, rgba(255, 255, 255, 0.9) 90%);
+}
+
+/* --- Theme: Volcanic Orange (火山橙) --- */
+/* Base styles for sidebar and other components */
+.theme-scope-global[data-theme="volcanic-orange"],
+.theme-scope-layout[data-theme="volcanic-orange"],
+.theme-scope-sidebar[data-theme="volcanic-orange"] .sidebar {
+  --font-family-base: 'Roboto', sans-serif;
+  --bg-primary: #ffffff;
+  --bg-secondary: #fffcf9;
+  --bg-hover: #fff7ed;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+  --accent-color: #F56510;
+  --accent-color-hover: #E0560B;
+  --shadow-color: rgba(245, 101, 16, 0.15);
+  --border-radius-sm: 1.5rem;
+  --border-radius-md: 1.5rem;
+}
+/* Specific override for a colored navbar */
+.theme-scope-navbar[data-theme="volcanic-orange"] .admin-navbar,
+.theme-scope-navbar[data-theme="volcanic-orange"] .tabs-bar {
+  --bg-primary: #F56510; /* Orange background */
+  --text-primary: #ffffff; /* White text for contrast */
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --border-color: #E0560B; /* Darker orange border */
+  --bg-hover: rgba(255, 255, 255, 0.1); /* Subtle white hover */
+  --accent-color: #ffffff; /* Active elements are white */
+  --accent-color-hover: #ffffff;
+}
+.theme-scope-global[data-theme="volcanic-orange"] {
+  --body-bg-image: radial-gradient(circle at 10% 20%, rgba(255, 247, 237, 0.8) 0%, rgba(255, 255, 255, 0.9) 90%);
+}
+.theme-scope-sidebar[data-theme="volcanic-orange"] .is-collapsed .menu-link { border-radius: 50%; width: 56px; height: 56px; padding: 0; margin: 0 auto 0.5rem; justify-content: center; }
+.theme-scope-navbar[data-theme="volcanic-orange"] .tab-item { border-radius: var(--border-radius-sm); padding: 0.5rem 1.5rem; margin: 0 0.25rem; height: auto; border-bottom: none; }
+.theme-scope-navbar[data-theme="volcanic-orange"] .tab-item.active { background-color: var(--bg-hover); color: var(--accent-color); }
+
+/* --- NEW Theme: Rose Gold (烟粉) --- */
+.theme-scope-global[data-theme="rose-gold"],
+.theme-scope-layout[data-theme="rose-gold"],
+.theme-scope-sidebar[data-theme="rose-gold"] .sidebar,
+.theme-scope-navbar[data-theme="rose-gold"] .admin-navbar,
+.theme-scope-navbar[data-theme="rose-gold"] .tabs-bar {
+  --bg-primary: #fdfafb;
+  --bg-secondary: #f7f2f3;
+  --bg-hover: #f4e9ec;
+  --text-primary: #4a4a4a;
+  --text-secondary: #8d8d8d;
+  --border-color: #e6d9dc;
+  --accent-color: #c08497;
+  --accent-color-hover: #ad6d82;
+  --shadow-color: rgba(192, 132, 151, 0.15);
+  --border-radius-sm: 0.6rem;
+  --border-radius-md: 0.8rem;
+}
+.theme-scope-global[data-theme="rose-gold"] {
+  --body-bg-image: radial-gradient(circle at 90% 10%, rgba(244, 233, 236, 0.8) 0%, rgba(253, 250, 251, 0.9) 90%);
+}
+
+/* ==================================
+   3. Dashboard Theme Variables
+   ================================== */
+
+/* ... (Other theme dashboard variables) ... */
+
+/* Dashboard Variables for Volcanic Orange Theme */
+.theme-scope-global[data-theme="volcanic-orange"] .dashboard-container,
+.theme-scope-layout[data-theme="volcanic-orange"] .dashboard-container {
+  --dashboard-card-bg: rgba(255, 255, 255, 0.95);
+  --dashboard-card-border: rgba(229, 231, 235, 0.6);
+  --dashboard-card-shadow: rgba(245, 101, 16, 0.1);
+  --dashboard-text-primary: #1f2937;
+  --dashboard-text-secondary: #6b7280;
+  --dashboard-accent: #F56510;
+}
+
+/* Dashboard Variables for Rose Gold Theme */
+.theme-scope-global[data-theme="rose-gold"] .dashboard-container,
+.theme-scope-layout[data-theme="rose-gold"] .dashboard-container {
+  --dashboard-card-bg: rgba(253, 250, 251, 0.9);
+  --dashboard-card-border: rgba(230, 217, 220, 0.7);
+  --dashboard-card-shadow: rgba(192, 132, 151, 0.1);
+  --dashboard-text-primary: #4a4a4a;
+  --dashboard-text-secondary: #8d8d8d;
+  --dashboard-accent: #c08497;
+}
+
+
+/* ==================================
+   4. Global Styles
+   ================================== */
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--bg-secondary);
+  background-image: var(--body-bg-image);
+  background-attachment: fixed;
+  background-size: cover;
+  color: var(--text-primary);
+  margin: 0;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.sidebar, .admin-navbar, .tabs-bar, .dropdown-menu, .theme-settings-panel, .floating-menu {
+  backdrop-filter: var(--backdrop-filter);
+  -webkit-backdrop-filter: var(--backdrop-filter);
+}

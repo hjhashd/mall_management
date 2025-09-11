@@ -1,0 +1,514 @@
+/* /src/assets/css/order-styles.css (浅绿主题版) */
+
+/* ----------------------------------------- */
+/* 1. 全局主题变量 (来自你的设计)
+/* ----------------------------------------- */
+:root {
+    --order-primary-color: #5c9e53;      /* 主题绿 */
+    --order-secondary-color: #f7faf5;    /* 页面背景色 (浅绿) */
+    --order-hover-color: #e6f0e6;        /* 悬浮/高亮色 */
+    --order-text-color: #3b4a30;         /* 主要文字颜色 (深绿) */
+    --order-text-muted-color: #6b7a63;   /* 辅助文字颜色 */
+    --order-border-color: #d7e3d7;       /* 边框颜色 */
+    --order-shadow-color: rgba(92, 158, 83, 0.1); /* 阴影颜色 */
+    --order-shadow-strong: rgba(92, 158, 83, 0.15);
+}
+
+/* ----------------------------------------- */
+/* 2. 页面级容器
+/* ----------------------------------------- */
+.order-module__page-container {
+    background-color: var(--order-secondary-color);
+    min-height: 80vh;
+    padding: 2rem 0;
+    padding-top: 80px;
+}
+
+/* ----------------------------------------- */
+/* 3. 卡片/区块样式
+/* ----------------------------------------- */
+.order-module__card {
+    background-color: #fff;
+    border-radius: 16px;
+    border: 1px solid var(--order-border-color);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px var(--order-shadow-color);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    padding: 1.5rem;
+}
+
+.order-module__card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px var(--order-shadow-strong);
+}
+
+/* ----------------------------------------- */
+/* 4. 订单状态徽章 (来自你的设计)
+/* ----------------------------------------- */
+.order-module__status-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.order-module__status-badge--completed { /* 已完成/Active */
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+.order-module__status-badge--pending { /* 待付款/Pending */
+    background-color: #fff8e1;
+    color: #f57f17;
+}
+.order-module__status-badge--shipped { /* 待发货/待收货 */
+    background-color: #e3f2fd;
+    color: #1565c0;
+}
+.order-module__status-badge--cancelled { /* 已取消/Inactive */
+    background-color: #f5f5f5;
+    color: #9e9e9e;
+}
+.order-module__status-badge--review { /* 待评价 */
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+/* ----------------------------------------- */
+/* 5. 订单列表页专属样式
+/* ----------------------------------------- */
+.order-module__list-card {
+    padding: 0;
+}
+
+.order-module__list-header,
+.order-module__list-footer {
+    padding: 1rem 1.5rem;
+    background-color: #fcfdfc; /* 稍微区别于背景色 */
+}
+
+.order-module__list-header { border-bottom: 1px solid var(--order-border-color); }
+.order-module__list-footer { border-top: 1px solid var(--order-border-color); }
+
+.order-module__list-items-container {
+    padding: 0.5rem 1.5rem;
+}
+
+.order-module__list-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--order-border-color);
+}
+.order-module__list-item:last-child {
+    border-bottom: none;
+}
+
+.order-module__product-image {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 1rem;
+    border: 1px solid var(--order-border-color);
+}
+
+/* 订单列表页的分类按钮 */
+.order-module__status-tabs .nav-link {
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--order-border-color);
+    color: var(--order-text-muted-color);
+    transition: all 0.2s ease;
+    background-color: #fff;
+    font-weight: 500;
+}
+
+.order-module__status-tabs .nav-link.active {
+    background-color: var(--order-primary-color);
+    color: white;
+    border-color: var(--order-primary-color);
+    box-shadow: 0 2px 8px var(--order-shadow-strong);
+}
+
+/* ----------------------------------------- */
+/* 6. 订单详情页专属样式
+/* ----------------------------------------- */
+
+/* 订单列表页的分类按钮 - 新样式 */
+.order-module__status-tabs .nav-pills {
+    display: flex;
+    gap: 0.75rem; /* 控制按钮之间的间距 */
+    flex-wrap: wrap; /* 在小屏幕上自动换行 */
+}
+
+.order-module__status-tabs .nav-link {
+    display: flex; /* 让图标和文字对齐更方便 */
+    align-items: center;
+    border-radius: 50px; /* 圆角胶囊形状 */
+    padding: 0.6rem 1.25rem;
+    border: 1px solid transparent; /* 默认状态下边框透明 */
+    color: var(--order-text-muted-color);
+    background-color: #fff;
+    box-shadow: 0 2px 5px var(--order-shadow-color);
+    font-weight: 600; /* 字体加粗 */
+    transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1); /* 平滑过渡动画 */
+    position: relative; /* 为下划线伪元素定位 */
+    overflow: hidden; /* 隐藏溢出的伪元素 */
+}
+
+/* 鼠标悬浮时的动感效果 */
+.order-module__status-tabs .nav-link:hover:not(.active) {
+    transform: translateY(-3px); /* 按钮轻微上移 */
+    box-shadow: 0 6px 12px var(--order-shadow-strong); /* 阴影加深 */
+    color: var(--order-primary-color); /* 文字颜色变为主题色 */
+    background-color: var(--order-hover-color);
+}
+
+/* 鼠标悬浮时，图标的交互动效 */
+.order-module__status-tabs .nav-link:hover .fas {
+    transform: scale(1.1) rotate(-5deg); /* 图标放大并轻微旋转 */
+}
+.order-module__status-tabs .nav-link .fas {
+    transition: transform 0.3s ease; /* 图标动效过渡 */
+    margin-right: 8px; /* 确保图标和文字有间距 */
+}
+
+
+/* 激活状态 (active) 的样式 */
+.order-module__status-tabs .nav-link.active {
+    color: white;
+    border-color: transparent;
+    background: linear-gradient(135deg, var(--order-primary-color), #76c86b); /* 使用渐变背景 */
+    box-shadow: 0 4px 15px -2px rgba(92, 158, 83, 0.5); /* 更强的阴影 */
+    transform: translateY(-2px);
+}
+
+/* 激活状态下的动态下划线 */
+.order-module__status-tabs .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 4px; /* 距离底部的位置 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%; /* 下划线宽度 */
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 2px;
+    animation: slide-in 0.4s ease-out; /* 应用滑入动画 */
+}
+
+/* 定义滑入动画 */
+@keyframes slide-in {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 40%;
+        opacity: 1;
+    }
+}
+
+/* ----------------------------------------- */
+/* 7. 响应式适配
+/* ----------------------------------------- */
+@media (max-width: 768px) {
+    .order-module__page-container {
+        padding: 1rem 0;
+        padding-top: 70px;
+    }
+    .order-module__page-container .container {
+        padding: 0 15px;
+    }
+    .order-module__card {
+        padding: 1rem;
+        border-radius: 12px;
+    }
+}
+
+
+/* ----------------------------------------- */
+/* 6. 订单详情页专属优化样式 (新增)
+/* ----------------------------------------- */
+
+/* 卡片内标题样式 */
+.order-module__card h5 {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: var(--order-text-color);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--order-border-color);
+}
+
+.order-module__card h5 .fas {
+    color: var(--order-primary-color);
+    font-size: 1.1em;
+    margin-right: 0.75rem;
+}
+
+/* 详情页商品项布局优化 */
+.order-module__detail-item {
+    display: flex;
+    align-items: flex-start; /* 垂直方向顶部对齐 */
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--order-border-color);
+}
+.order-module__detail-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.order-module__detail-item:first-of-type {
+    padding-top: 0;
+}
+
+
+.order-module__detail-thumbnail {
+    width: 80px;
+    height: 80px; /* 改为正方形，更整齐 */
+    object-fit: cover;
+    border-radius: 12px;
+    margin-right: 1rem;
+    border: 1px solid var(--order-border-color);
+    background-color: #fff;
+}
+
+.order-module__detail-item .item-info {
+    flex-grow: 1;
+}
+.order-module__detail-item .item-info h6 {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.order-module__detail-item .item-price-quantity {
+    text-align: right;
+    min-width: 90px;
+    color: var(--order-text-color);
+}
+.order-module__detail-item .item-price-quantity .price {
+    font-weight: bold;
+    font-size: 1.05em;
+}
+
+/* 金额明细区域样式 */
+.order-module__amount-summary .summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    color: var(--order-text-muted-color);
+}
+
+.order-module__amount-summary .summary-total {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--order-border-color);
+}
+
+.order-module__amount-summary .summary-total .total-label {
+    font-weight: 600;
+    font-size: 1.1em;
+    color: var(--order-text-color);
+}
+.order-module__amount-summary .summary-total .total-value {
+    font-weight: 700;
+    font-size: 1.5em;
+    color: var(--order-primary-color);
+}
+
+/* 详情页的按钮样式 */
+.order-detail-actions .btn {
+    border-radius: 20px;
+    padding: 0.5rem 1.25rem;
+}
+
+
+/* /src/assets/css/order-styles.css */
+/* --- 在文件末尾追加以下所有代码 --- */
+
+
+/* ----------------------------------------- */
+/* 7. 全局弹窗 (Modal) 样式 (新增)
+/* ----------------------------------------- */
+
+/* 弹窗遮罩层 */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+    backdrop-filter: blur(4px);
+}
+
+/* 弹窗面板基础样式 */
+.modal-panel {
+    background-color: #fff;
+    width: 92%;
+    max-width: 500px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    max-height: 80vh;
+}
+
+/* 弹窗头部 */
+.modal-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--order-border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--order-text-color);
+    margin-bottom: 0;
+}
+
+/* 弹窗主体 */
+.modal-body {
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+/* ----------------------------------------- */
+/* 8. 特定弹窗样式 (退款与物流)
+/* ----------------------------------------- */
+
+/* --- 退款商品选择样式 --- */
+
+.refund-item-card {
+    border: 2px solid transparent; /* 默认边框透明 */
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    position: relative;
+}
+.refund-item-card:hover {
+    background-color: var(--order-hover-color);
+}
+
+/* !! 解决问题1：退款商品选中时的强高亮样式 !! */
+.refund-item-card.selected-item {
+    border-color: var(--order-primary-color);
+    background-color: #f0f8ef; /* 更明显的浅绿色背景 */
+    box-shadow: 0 4px 12px var(--order-shadow-strong);
+    transform: scale(1.02);
+}
+/* 在选中的卡片右上角加一个对勾图标 */
+.refund-item-card.selected-item::after {
+    content: '\f058'; /* Font Awesome 实体对勾图标 */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    width: 28px;
+    height: 28px;
+    background-color: var(--order-primary-color);
+    color: white;
+    border-radius: 0 14px 0 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+
+/* --- 物流弹窗样式 --- */
+.logistics-panel {
+    max-width: 600px; /* 物流弹窗可以宽一点 */
+}
+
+.logistics-info {
+    background-color: var(--order-secondary-color);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--order-border-color);
+}
+
+.timeline {
+    position: relative;
+    padding-left: 20px;
+    border-left: 2px solid var(--order-border-color);
+}
+
+.timeline-item {
+    position: relative;
+    padding: 0.25rem 0 1.75rem 20px;
+}
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-item .dot-container {
+    position: absolute;
+    left: -32px; /* 移动到左侧 */
+    top: 0;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline-item .dot {
+    width: 12px;
+    height: 12px;
+    background-color: #ccc;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+/* 最新物流节点的样式 */
+.timeline-item.latest .dot-container {
+    left: -37px;
+}
+.timeline-item.latest .dot {
+    width: 22px;
+    height: 22px;
+    background-color: var(--order-primary-color);
+    border-width: 3px;
+    animation: pulse 1.5s infinite; /* 脉冲动画 */
+}
+.timeline-item.latest .desc,
+.timeline-item.latest .time {
+    color: var(--order-primary-color);
+    font-weight: 600;
+}
+
+
+.timeline-item .content .desc {
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: var(--order-text-color);
+}
+.timeline-item .content .time {
+    font-size: 0.85rem;
+    color: var(--order-text-muted-color);
+    margin-bottom: 6px;
+}
+.timeline-item .content .site {
+    font-size: 0.85rem;
+}
+
+/* 脉冲动画定义 */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(92, 158, 83, 0.6);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(92, 158, 83, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(92, 158, 83, 0);
+    }
+}

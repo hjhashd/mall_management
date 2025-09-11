@@ -1,0 +1,180 @@
+
+    /* --- 1. 全局设计系统 (Global Design System) --- */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    /* 字体 */
+    --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    /* 色彩方案: 现代、优雅的紫色与蓝色调 */
+    --color-primary: #5E66D2; /* 主色调: 一种沉稳而有活力的紫色 */
+    --color-primary-light: #F0F1FD; /* 淡紫色，用于背景或悬停状态 */
+    --color-secondary: #00BFFF; /* 辅助色: 天蓝色，用于点缀 */
+    --color-text-primary: #1A202C; /* 主要文本颜色: 深灰蓝 */
+    --color-text-secondary: #718096; /* 次要文本颜色: 较浅的灰蓝 */
+    --color-border: #E2E8F0; /* 边框颜色: 非常浅的灰色 */
+    --color-background: #F7FAFC; /* 页面背景色: 带有微弱蓝调的白色 */
+    --color-surface: #FFFFFF; /* 卡片和表单背景色: 纯白 */
+    --color-disabled: #E9ECEF; /* 禁用状态颜色 */
+
+    /* 尺寸与间距 (Spacing & Sizing) */
+    --sidebar-width: 320px;
+    --spacing-small: 8px;
+    --spacing-base: 24px;
+    --spacing-large: 32px;
+
+    /* 圆角 (Border Radius) */
+    --radius-small: 8px;
+    --radius-medium: 12px;
+    --radius-large: 16px;
+    --radius-full: 9999px;
+
+    /* 阴影 (Shadows) */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-focus: 0 0 0 3px rgba(94, 102, 210, 0.3);
+
+    /* 过渡动画 (Transitions) */
+    --transition-fast: all 0.15s ease-in-out;
+    --transition-medium: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- 2. 基础样式重置与设置 --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family-base);
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--color-secondary);
+}
+
+/* --- 3. 全局表单元素样式 --- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: var(--transition-medium);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-focus);
+}
+
+textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* --- 4. 全局按钮样式 --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--radius-medium);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-medium);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    filter: brightness(1.1);
+}
+
+.btn-primary:disabled {
+    background: var(--color-disabled);
+    color: var(--color-text-secondary);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* --- 5. 文件上传区域样式 --- */
+.file-upload-wrapper {
+    position: relative;
+    border-radius: var(--radius-medium);
+    border: 2px dashed var(--color-border);
+    transition: var(--transition-medium);
+}
+
+.file-upload-wrapper:hover {
+    border-color: var(--color-primary);
+    background: var(--color-primary-light);
+}
+
+.file-upload-input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-upload-hint {
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--color-text-secondary);
+    text-align: center;
+}
+
+.file-upload-hint i {
+    color: var(--color-primary);
+    font-size: 1.8rem;
+}
