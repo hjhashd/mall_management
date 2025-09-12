@@ -42,31 +42,39 @@
 
 
 #### 商品详情
-![Uploading image.png…]()
+<img width="2558" height="1349" alt="image" src="https://github.com/user-attachments/assets/d9933e4f-681f-4ec7-a132-825a931c58b7" />
 
 
 #### 购物车
-<!-- 在此处插入购物车页面截图 -->
-![购物车](./screenshots/shopping-cart.png)
+<img width="2558" height="1381" alt="image" src="https://github.com/user-attachments/assets/d233e3e8-cc4c-424e-970e-ccfd4bfd15e8" />
+
+#### 订单详情列表
+<img width="2559" height="1379" alt="image" src="https://github.com/user-attachments/assets/e8fa4c27-3953-4302-a4bd-cacbd0b43940" />
 
 #### 个人中心
-<!-- 在此处插入个人中心截图 -->
-![个人中心](./screenshots/user-center.png)
+<img width="2559" height="1372" alt="image" src="https://github.com/user-attachments/assets/ce6bef73-9ec6-4991-85e5-c2f1e832c6bf" />
 
-#### 社区互动
-<!-- 在此处插入社区页面截图 -->
-![社区](./screenshots/community.png)
 
-### 移动端适配
+#### 实时聊天通知
+<img width="2559" height="1403" alt="image" src="https://github.com/user-attachments/assets/f5c12281-ef46-4359-b714-67b918d16046" />
 
-#### 移动端首页
-<!-- 在此处插入移动端首页截图 -->
-![移动端首页](./screenshots/mobile-home.png)
+#### 商家认证与消息通知栏
+<img width="2557" height="1401" alt="image" src="https://github.com/user-attachments/assets/5277f161-a71c-4b0f-a74c-030e506e5a64" />
 
-#### 移动端商品列表
-<!-- 在此处插入移动端商品列表截图 -->
-![移动端商品列表](./screenshots/mobile-products.png)
+#### 商品新增或修改
+<img width="2559" height="1355" alt="image" src="https://github.com/user-attachments/assets/514a1e1a-3e4d-48a5-8326-b8133abef4ac" />
 
+#### 评价页
+<img width="2555" height="1386" alt="image" src="https://github.com/user-attachments/assets/4ab70b49-8e47-4921-9f4b-fc517f12c9cd" />
+
+#### 卖家评论列表
+<img width="2559" height="1387" alt="image" src="https://github.com/user-attachments/assets/c1802417-093c-42c3-bf61-931c529999cc" />
+
+#### 支付确认页
+<img width="2558" height="1401" alt="image" src="https://github.com/user-attachments/assets/dc108a75-8a21-40d3-8c8d-33345b00b523" />
+
+#### 卖家处理业务逻辑页，包括发货，退款处理
+![Uploading image.png…]()
 ---
 
 ## 🚀 项目概述
@@ -478,10 +486,8 @@ git push origin feature/your-feature-name
 
 ## 📞 联系方式
 
-- **项目地址**：[GitHub Repository](your-repo-url)
-- **文档地址**：[项目文档](your-docs-url)
-- **问题反馈**：[Issues](your-issues-url)
-- **邮箱联系**：your-email@example.com
+- **项目地址**：[GitHub Repository](https://github.com/hjhashd/mall_management.git)
+- **邮箱联系**：woqu_0716@qq.com
 
 ---
 
