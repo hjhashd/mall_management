@@ -19,7 +19,8 @@
 ### 管理后台
 
 #### 登录界面
-![登录页面](https://github.com/user-attachments/assets/baef5b0f-8950-4b30-889e-ae8e6df75861)
+<img width="2559" height="1389" alt="image" src="https://github.com/user-attachments/assets/7217df40-02d7-4248-92a3-27efe9f7f6f7" />
+
 
 #### 仪表板总览
 ![仪表板](https://github.com/user-attachments/assets/baef5b0f-8950-4b30-889e-ae8e6df75861)
