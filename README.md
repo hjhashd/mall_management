@@ -13,38 +13,37 @@
 ![登录界面](./screenshots/login.png)
 
 #### 仪表板总览
-<!-- 在此处插入仪表板截图 -->
-![仪表板](./screenshots/dashboard.png)
+<img width="2553" height="1394" alt="屏幕截图 2025-08-25 105438" src="https://github.com/user-attachments/assets/baef5b0f-8950-4b30-889e-ae8e6df75861" />
+
 
 #### 商品管理
-<!-- 在此处插入商品管理页面截图 -->
-![商品管理](./screenshots/product-management.png)
+<img width="2559" height="1386" alt="屏幕截图 2025-08-25 112721" src="https://github.com/user-attachments/assets/cb3cdc60-b753-4211-9c78-9a55fc5b18ff" />
+
 
 #### 订单管理
-<!-- 在此处插入订单管理页面截图 -->
-![订单管理](./screenshots/order-management.png)
+<img width="2559" height="1395" alt="image" src="https://github.com/user-attachments/assets/bae23229-0c16-44ad-838b-fc6acea8a525" />
 
 #### 用户管理
-<!-- 在此处插入用户管理页面截图 -->
-![用户管理](./screenshots/user-management.png)
+<img width="2557" height="1392" alt="image" src="https://github.com/user-attachments/assets/841820eb-6ee1-47e3-af30-14c6fdcbbbcc" />
 
-#### 实时监控
-<!-- 在此处插入实时监控页面截图 -->
-![实时监控](./screenshots/real-time-monitor.png)
 
-#### 数据分析
-<!-- 在此处插入数据分析页面截图 -->
-![数据分析](./screenshots/data-analysis.png)
+#### 角色权限
+<img width="2555" height="1400" alt="image" src="https://github.com/user-attachments/assets/fcb345ae-4d67-4ac2-ab3c-094498cb955d" />
 
-### 用户前台
+
+#### 卖家仪表盘
+<img width="2559" height="1395" alt="image" src="https://github.com/user-attachments/assets/7a56a849-b30a-40af-a9fb-eeb24e847ac4" />
+
+### 客户管理（关注列表）
+<img width="2559" height="1397" alt="image" src="https://github.com/user-attachments/assets/99ddfffc-ed1d-4b8a-b357-08f4f378ee47" />
 
 #### 首页展示
-<!-- 在此处插入首页截图 -->
-![首页](./screenshots/homepage.png)
+<img width="2559" height="1443" alt="image" src="https://github.com/user-attachments/assets/8589d471-899a-40b6-9180-13889060269c" />
+
 
 #### 商品详情
-<!-- 在此处插入商品详情页截图 -->
-![商品详情](./screenshots/product-detail.png)
+![Uploading image.png…]()
+
 
 #### 购物车
 <!-- 在此处插入购物车页面截图 -->
