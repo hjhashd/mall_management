@@ -1,4 +1,5 @@
 # Mall Management System | 商城管理系统 - 完整文档
+# 后端链接如下：https://github.com/hjhashd/mall_spring
 
 ## 📋 项目概述
 
