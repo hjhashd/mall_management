@@ -1,150 +1,147 @@
-Mall Management System | 商城管理系统
-一个基于 Vue 3 的现代化商城管理系统，提供完整的电商后台管理解决方案
+# Mall Management System | 商城管理系统 - 完整文档
 
-🖼️ 界面展示
-管理后台
-登录界面
-<!-- 在此处插入登录页面截图 -->
+## 📋 项目概述
 
-仪表板总览
-<img width="2553" height="1394" alt="屏幕截图 2025-08-25 105438" src="https://github.com/user-attachments/assets/baef5b0f-8950-4b30-889e-ae8e6df75861" />
+**Mall Management System** 是一个基于 Vue 3 的现代化商城管理系统，提供完整的电商后台管理解决方案。该系统采用前后端分离架构，为电商企业提供商品管理、订单处理、用户管理、数据分析等全方位的后台管理功能。系统设计注重用户体验和操作效率，支持实时数据监控和智能化管理。
 
-商品管理
-<img width="2559" height="1386" alt="屏幕截图 2025-08-25 112721" src="https://github.com/user-attachments/assets/cb3cdc60-b753-4211-9c78-9a55fc5b18ff" />
+### 🎯 核心价值
 
-订单管理
-<img width="2559" height="1395" alt="image" src="https://github.com/user-attachments/assets/bae23229-0c16-44ad-838b-fc6acea8a525" />
+- **统一管理**：集成商品、订单、用户、评论等核心业务模块
+- **数据驱动**：实时监控系统状态，提供可视化数据分析
+- **智能助手**：集成AI功能，提升运营效率
+- **响应式设计**：支持多设备访问，适配各种屏幕尺寸
+- **安全可靠**：完善的权限管理和数据安全保障
 
-用户管理
-<img width="2557" height="1392" alt="image" src="https://github.com/user-attachments/assets/841820eb-6ee1-47e3-af30-14c6fdcbbbcc" />
+---
 
-角色权限
-<img width="2555" height="1400" alt="image" src="https://github.com/user-attachments/assets/fcb345ae-4d67-4ac2-ab3c-094498cb955d" />
+## 🖼️ 界面展示
 
-卖家仪表盘
-<img width="2559" height="1395" alt="image" src="https://github.com/user-attachments/assets/7a56a849-b30a-40af-a9fb-eeb24e847ac4" />
+### 管理后台
 
-客户管理（关注列表）
-<img width="2559" height="1397" alt="image" src="https://github.com/user-attachments/assets/99ddfffc-ed1d-4b8a-b357-08f4f378ee47" />
+#### 登录界面
+![登录页面](https://github.com/user-attachments/assets/baef5b0f-8950-4b30-889e-ae8e6df75861)
 
-首页展示
-<img width="2559" height="1443" alt="image" src="https://github.com/user-attachments/assets/8589d471-899a-40b6-9180-13889060269c" />
+#### 仪表板总览
+![仪表板](https://github.com/user-attachments/assets/baef5b0f-8950-4b30-889e-ae8e6df75861)
 
-商品详情
-<img width="1988" height="1250" alt="image" src="https://github.com/user-attachments/assets/3f5bf881-eee5-4961-bd11-498105ccf4a2" />
+#### 商品管理
+![商品管理](https://github.com/user-attachments/assets/cb3cdc60-b753-4211-9c78-9a55fc5b18ff)
 
-购物车
-<img width="2558" height="1349" alt="image" src="https://github.com/user-attachments/assets/d9933e4f-681f-4ec7-a132-825a931c58b7" />
+#### 订单管理
+![订单管理](https://github.com/user-attachments/assets/bae23229-0c16-44ad-838b-fc6acea8a525)
 
-订单详情列表
-<img width="2558" height="1381" alt="image" src="https://github.com/user-attachments/assets/d233e3e8-cc4c-424e-970e-ccfd4bfd15e8" />
+#### 用户管理
+![用户管理](https://github.com/user-attachments/assets/841820eb-6ee1-47e3-af30-14c6fdcbbbcc)
 
-个人中心
-<img width="2559" height="1379" alt="image" src="https://github.com/user-attachments/assets/e8fa4c27-3953-4302-a4bd-cacbd0b43940" />
+#### 角色权限
+![角色权限](https://github.com/user-attachments/assets/fcb345ae-4d67-4ac2-ab3c-094498cb955d)
 
-实时聊天通知
-<img width="2559" height="1372" alt="image" src="https://github.com/user-attachments/assets/ce6bef73-9ec6-4991-85e5-c2f1e832c6bf" />
+#### 卖家仪表盘
+![卖家仪表盘](https://github.com/user-attachments/assets/7a56a849-b30a-40af-a9fb-eeb24e847ac4)
 
-商家认证与消息通知栏
-<img width="2559" height="1403" alt="image" src="https://github.com/user-attachments/assets/f5c12281-ef46-4359-b714-67b918d16046" />
+#### 客户管理（关注列表）
+![客户管理](https://github.com/user-attachments/assets/99ddfffc-ed1d-4b8a-b357-08f4f378ee47)
 
-商品新增或修改
-<img width="2557" height="1401" alt="image" src="https://github.com/user-attachments/assets/5277f161-a71c-4b0f-a74c-030e506e5a64" />
+### 首页展示
 
-评价页
-<img width="2559" height="1355" alt="image" src="https://github.com/user-attachments/assets/514a1e1a-3e4d-48a5-8326-b8133abef4ac" />
+#### 商城首页
+![首页展示](https://github.com/user-attachments/assets/8589d471-899a-40b6-9180-13889060269c)
 
-卖家评论列表
-<img width="2555" height="1386" alt="image" src="https://github.com/user-attachments/assets/4ab70b49-8e47-4921-9f4b-fc517f12c9cd" />
+#### 商品详情
+![商品详情](https://github.com/user-attachments/assets/3f5bf881-eee5-4961-bd11-498105ccf4a2)
 
-支付确认页
-<img width="2559" height="1387" alt="image" src="https://github.com/user-attachments/assets/c1802417-093c-42c3-bf61-931c529999cc" />
+#### 购物车
+![购物车](https://github.com/user-attachments/assets/d9933e4f-681f-4ec7-a132-825a931c58b7)
 
-卖家处理业务逻辑页，包括发货，退款处理
-<img width="2558" height="1401" alt="image" src="https://github.com/user-attachments/assets/dc108a75-8a21-40d3-8c8d-33345b00b523" />
+#### 订单详情列表
+![订单详情](https://github.com/user-attachments/assets/d233e3e8-cc4c-424e-970e-ccfd4bfd15e8)
 
-🚀 项目概述
-Mall Management System 是一个功能完整的电商平台管理系统，采用前后端分离架构，为电商企业提供商品管理、订单处理、用户管理、数据分析等全方位的后台管理功能。系统设计注重用户体验和操作效率，支持实时数据监控和智能化管理。
+#### 个人中心
+![个人中心](https://github.com/user-attachments/assets/e8fa4c27-3953-4302-a4bd-cacbd0b43940)
 
-核心价值
-🎯 统一管理：集成商品、订单、用户、评论等核心业务模块
+#### 实时聊天通知
+![实时聊天](https://github.com/user-attachments/assets/ce6bef73-9ec6-4991-85e5-c2f1e832c6bf)
 
-📊 数据驱动：实时监控系统状态，提供可视化数据分析
+#### 商家认证与消息通知栏
+![商家认证](https://github.com/user-attachments/assets/f5c12281-ef46-4359-b714-67b918d16046)
 
-🤖 智能助手：集成AI功能，提升运营效率
+#### 商品新增或修改
+![商品编辑](https://github.com/user-attachments/assets/5277f161-a71c-4b0f-a74c-030e506e5a64)
 
-📱 响应式设计：支持多设备访问，适配各种屏幕尺寸
+#### 评价页
+![评价页](https://github.com/user-attachments/assets/514a1e1a-3e4d-48a5-8326-b8133abef4ac)
 
-🔐 安全可靠：完善的权限管理和数据安全保障
+#### 卖家评论列表
+![卖家评论](https://github.com/user-attachments/assets/4ab70b49-8e47-4921-9f4b-fc517f12c9cd)
 
-✨ 功能特性
-🛍️ 商品管理
-商品分类管理：支持多级分类，树形结构展示
+#### 支付确认页
+![支付确认](https://github.com/user-attachments/assets/c1802417-093c-42c3-bf61-931c529999cc)
 
-商品列表管理：批量操作、状态管理、库存监控
+#### 卖家处理业务逻辑页（发货，退款处理）
+![业务处理](https://github.com/user-attachments/assets/dc108a75-8a21-40d3-8c8d-33345b00b523)
 
-图片审核系统：商品图片质量控制和合规性检查
+---
 
-价格管理：灵活的定价策略和促销管理
+## ✨ 功能特性
 
-📦 订单管理
-订单处理流程：从下单到发货的完整流程管理
+### 🛍️ 商品管理
+- **商品分类管理**：支持多级分类，树形结构展示
+- **商品列表管理**：批量操作、状态管理、库存监控
+- **图片审核系统**：商品图片质量控制和合规性检查
+- **价格管理**：灵活的定价策略和促销管理
 
-支付记录追踪：多种支付方式的交易记录
+### 📦 订单管理
+- **订单处理流程**：从下单到发货的完整流程管理
+- **支付记录追踪**：多种支付方式的交易记录
+- **订单状态监控**：实时跟踪订单状态变化
+- **退款处理**：便捷的退款审核和处理机制
 
-订单状态监控：实时跟踪订单状态变化
+### 👥 用户管理
+- **用户信息维护**：完整的用户档案管理
+- **地址管理**：用户收货地址的增删改查
+- **权限控制**：基于角色的访问控制系统
+- **用户行为分析**：购买习惯和偏好分析
 
-退款处理：便捷的退款审核和处理机制
+### 💬 客服系统
+- **实时聊天**：WebSocket技术支持的即时通讯
+- **消息管理**：统一的消息中心和通知系统
+- **聊天记录**：完整的对话历史记录
+- **智能客服**：AI助手辅助客服工作
 
-👥 用户管理
-用户信息维护：完整的用户档案管理
+### 🌐 社区管理
+- **内容审核**：帖子和评论的审核机制
+- **社区互动**：用户互动和内容管理
+- **话题管理**：热门话题和标签系统
 
-地址管理：用户收货地址的增删改查
+### 📊 数据分析
+- **实时监控**：系统状态和业务指标实时展示
+- **销售统计**：多维度的销售数据分析
+- **用户分析**：用户行为和偏好洞察
+- **财务报表**：收入、成本和利润分析
 
-权限控制：基于角色的访问控制系统
+---
 
-用户行为分析：购买习惯和偏好分析
+## 🏗️ 技术架构
 
-💬 客服系统
-实时聊天：WebSocket技术支持的即时通讯
+### 前端技术栈
 
-消息管理：统一的消息中心和通知系统
+| 技术 | 版本 | 描述 |
+|------|------|------|
+| Vue 3 | 3.5.18 | 渐进式JavaScript框架 |
+| Vite | 4.0.0 | 下一代前端构建工具 |
+| Pinia | 3.0.3 | Vue 3状态管理 |
+| Vue Router | 4.5.1 | 官方路由管理器 |
+| Ant Design Vue | 4.2.6 | 企业级UI组件库 |
+| ECharts | 5.6.0 | 数据可视化图表库 |
+| Axios | 1.11.0 | HTTP请求库 |
+| Day.js | 1.11.13 | 轻量级日期处理库 |
+| Bootstrap | 5.3.7 | CSS框架 |
+| Animate.css | 4.1.1 | CSS动画库 |
+| Font Awesome | 4.7.0 | 图标库 |
 
-聊天记录：完整的对话历史记录
+### 架构模式
 
-智能客服：AI助手辅助客服工作
-
-🌐 社区管理
-内容审核：帖子和评论的审核机制
-
-社区互动：用户互动和内容管理
-
-话题管理：热门话题和标签系统
-
-📊 数据分析
-实时监控：系统状态和业务指标实时展示
-
-销售统计：多维度的销售数据分析
-
-用户分析：用户行为和偏好洞察
-
-财务报表：收入、成本和利润分析
-
-🏗️ 技术架构
-前端技术栈
-Vue 3.5.18         # 渐进式JavaScript框架
-├── Vite 4.0.0       # 下一代前端构建工具
-├── Pinia 3.0.3      # Vue 3状态管理
-├── Vue Router 4.5.1 # 官方路由管理器
-├── Ant Design Vue 4.2.6 # 企业级UI组件库
-├── ECharts 5.6.0    # 数据可视化图表库
-├── Axios 1.11.0     # HTTP请求库
-├── Day.js 1.11.13   # 轻量级日期处理库
-├── Bootstrap 5.3.7  # CSS框架
-├── Animate.css 4.1.1 # CSS动画库
-└── Font Awesome 4.7.0 # 图标库
-
-架构模式
+```mermaid
 graph TB
     A[用户界面层 UI Layer] --> B[路由层 Router Layer]
     B --> C[组件层 Component Layer]
@@ -157,29 +154,30 @@ graph TB
     I[工具层 Utils] --> C
     J[样式层 Styles] --> C
     K[资源层 Assets] --> C
+```
 
-模块化设计
-🎨 视图层 (Views)：页面级组件，包含管理后台和用户前台
+### 模块化设计
 
-🧩 组件层 (Components)：可复用的UI组件
+- **🎨 视图层 (Views)**：页面级组件，包含管理后台和用户前台
+- **🧩 组件层 (Components)**：可复用的UI组件
+- **🗄️ 状态管理 (Stores)**：Pinia管理的全局状态
+- **🌐 API层 (API)**：统一的接口请求封装
+- **🛠️ 工具层 (Utils)**：通用工具函数和配置
+- **🎭 服务层 (Services)**：业务逻辑服务
 
-🗄️ 状态管理 (Stores)：Pinia管理的全局状态
+---
 
-🌐 API层 (API)：统一的接口请求封装
+## 🚀 快速开始
 
-🛠️ 工具层 (Utils)：通用工具函数和配置
+### 环境要求
 
-🎭 服务层 (Services)：业务逻辑服务
+- Node.js: >= 14.x
+- npm: >= 6.x 或 yarn: >= 1.x
+- 现代浏览器: 支持ES2015+
 
-🚀 快速开始
-环境要求
-Node.js: >= 14.x
+### 安装步骤
 
-npm: >= 6.x 或 yarn: >= 1.x
-
-现代浏览器: 支持ES2015+
-
-安装步骤
+```bash
 # 1. 克隆项目
 git clone <repository-url>
 cd mall_management
@@ -203,15 +201,18 @@ yarn build
 npm run preview
 # 或使用 yarn
 yarn preview
+```
 
-开发环境配置
-# 开发服务器将运行在
-http://localhost:5173
+### 开发环境配置
 
-# API接口配置
-# 请在 src/utils/request.js 中配置后端API地址
+- 开发服务器将运行在：`http://localhost:5173`
+- API接口配置：请在 `src/utils/request.js` 中配置后端API地址
 
-📁 项目结构
+---
+
+## 📁 项目结构
+
+```
 mall_management/
 ├── public/               # 静态资源
 ├── src/                  # 源代码目录
@@ -249,11 +250,17 @@ mall_management/
 ├── package.json          # 项目配置
 ├── vite.config.js        # Vite配置
 └── README.md             # 项目文档
+```
 
-🔧 核心功能详解
-实时通信系统
+---
+
+## 🔧 核心功能详解
+
+### 实时通信系统
+
 基于WebSocket技术实现的实时通信功能：
 
+```javascript
 // WebSocket连接管理
 class WebSocketManager {
   connect() {
@@ -268,20 +275,19 @@ class WebSocketManager {
     // 发送消息
   }
 }
+```
 
-功能特色：
+**功能特色**：
+- 🔄 自动重连机制
+- 💬 实时聊天支持
+- 📢 系统通知推送
+- 📊 订单状态实时更新
 
-🔄 自动重连机制
+### 状态管理系统
 
-💬 实时聊天支持
-
-📢 系统通知推送
-
-📊 订单状态实时更新
-
-状态管理系统
 使用Pinia构建的响应式状态管理：
 
+```javascript
 // 用户状态管理
 export const useUserStore = defineStore('user', {
   state: () => ({
@@ -295,69 +301,59 @@ export const useUserStore = defineStore('user', {
     }
   }
 })
+```
 
-管理模块：
+**管理模块**：
+- 👤 用户状态 (userStore)
+- 🛒 购物车状态 (cartStore)
+- 💬 聊天状态 (chatStore)
+- 📢 消息状态 (messageStore)
+- 🔔 通知状态 (notificationStore)
 
-👤 用户状态 (userStore)
+### AI智能助手
 
-🛒 购物车状态 (cartStore)
-
-💬 聊天状态 (chatStore)
-
-📢 消息状态 (messageStore)
-
-🔔 通知状态 (notificationStore)
-
-AI智能助手
 集成人工智能功能，提升用户体验：
 
-AI功能模块：
+**AI功能模块**：
+- 🤖 智能客服对话
+- 📊 数据分析建议
+- 🎯 个性化推荐
+- 📝 内容生成辅助
 
-🤖 智能客服对话
+---
 
-📊 数据分析建议
+## 💡 技术亮点
 
-🎯 个性化推荐
+### 🎨 响应式设计
+- 多端适配：完美支持桌面端、平板、手机
+- 弹性布局：CSS Grid + Flexbox混合布局
+- 主题系统：支持多主题切换，暗黑模式
 
-📝 内容生成辅助
+### ⚡ 性能优化
+- 代码分割：路由级别的懒加载
+- 组件缓存：Keep-alive组件缓存
+- 资源优化：图片懒加载、CDN加速
+- 构建优化：Vite快速构建和热更新
 
-💡 技术亮点
-🎨 响应式设计
-多端适配：完美支持桌面端、平板、手机
+### 🔐 安全保障
+- 权限控制：基于RBAC的权限管理
+- 数据验证：前后端双重数据验证
+- XSS防护：输入内容过滤和转义
+- CSRF保护：请求令牌验证
 
-弹性布局：CSS Grid + Flexbox混合布局
+### 🧪 开发体验
+- TypeScript支持：类型安全的开发体验
+- ESLint规范：代码质量和风格统一
+- 热更新：开发时实时预览变更
+- 调试工具：Vue DevTools支持
 
-主题系统：支持多主题切换，暗黑模式
+---
 
-⚡ 性能优化
-代码分割：路由级别的懒加载
+## 📋 开发规范
 
-组件缓存：Keep-alive组件缓存
+### 代码规范
 
-资源优化：图片懒加载、CDN加速
-
-构建优化：Vite快速构建和热更新
-
-🔐 安全保障
-权限控制：基于RBAC的权限管理
-
-数据验证：前后端双重数据验证
-
-XSS防护：输入内容过滤和转义
-
-CSRF保护：请求令牌验证
-
-🧪 开发体验
-TypeScript支持：类型安全的开发体验
-
-ESLint规范：代码质量和风格统一
-
-热更新：开发时实时预览变更
-
-调试工具：Vue DevTools支持
-
-📋 开发规范
-代码规范
+```javascript
 // 组件命名：PascalCase
 export default {
   name: 'ProductCard'
@@ -367,60 +363,84 @@ export default {
 const productList = ref([])
 
 // 常量命名：UPPER_SNAKE_CASE
-const API_BASE_URL = '[https://api.example.com](https://api.example.com)'
+const API_BASE_URL = 'https://api.example.com'
+```
 
-文件结构规范
+### 文件结构规范
+
+```
 ComponentName/
 ├── index.vue         # 主组件文件
 ├── components/       # 子组件
 ├── composables/      # 组合式函数
 ├── styles/           # 组件样式
 └── __tests__/        # 测试文件
+```
 
-Git提交规范
-feat: 新功能
-fix: 修复bug
-docs: 文档更新
-style: 样式修改
-refactor: 代码重构
-test: 测试相关
-chore: 构建过程或辅助工具的变动
+### Git提交规范
 
-🚢 部署说明
-生产环境构建
+- `feat`: 新功能
+- `fix`: 修复bug
+- `docs`: 文档更新
+- `style`: 样式修改
+- `refactor`: 代码重构
+- `test`: 测试相关
+- `chore`: 构建过程或辅助工具的变动
+
+---
+
+## 🚢 部署说明
+
+### 生产环境构建
+
+```bash
 # 构建生产版本
 npm run build
 
 # 构建产物位于 dist/ 目录
+```
 
-部署方式
-1. 静态服务器部署
+### 部署方式
+
+#### 1. 静态服务器部署
+```bash
 # 将 dist/ 目录内容部署到静态服务器
 # 如：Nginx、Apache、IIS等
+```
 
-2. CDN部署
-# 推荐使用以下平台：
-# - Vercel
-# - Netlify
-# - GitHub Pages
-# - 阿里云OSS
-# - 腾讯云COS
+#### 2. CDN部署
+推荐使用以下平台：
+- Vercel
+- Netlify
+- GitHub Pages
+- 阿里云OSS
+- 腾讯云COS
 
-3. Docker部署
+#### 3. Docker部署
+```dockerfile
 FROM nginx:alpine
 COPY dist/ /usr/share/nginx/html/
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
+```
 
-环境变量配置
+### 环境变量配置
+
+```env
 # .env.production
-VITE_API_BASE_URL=[https://api.yourapi.com](https://api.yourapi.com)
+VITE_API_BASE_URL=https://api.yourapi.com
 VITE_WS_URL=wss://ws.yourapi.com
+```
 
-🤝 贡献指南
-开发流程
-Fork项目 → 2. 创建分支 → 3. 提交代码 → 4. 发起PR
+---
 
+## 🤝 贡献指南
+
+### 开发流程
+
+Fork项目 → 创建分支 → 提交代码 → 发起PR
+
+```bash
 # 1. Fork并克隆项目
 git clone <your-fork-url>
 
@@ -434,24 +454,30 @@ git commit -m "feat: add your feature"
 git push origin feature/your-feature-name
 
 # 5. 创建Pull Request
+```
 
-代码审查标准
-✅ 代码符合项目规范
+### 代码审查标准
 
-✅ 功能测试通过
+- ✅ 代码符合项目规范
+- ✅ 功能测试通过
+- ✅ 无明显性能问题
+- ✅ 文档更新完整
 
-✅ 无明显性能问题
+---
 
-✅ 文档更新完整
+## 📞 联系方式
 
-📞 联系方式
-项目地址：GitHub Repository
+- **项目地址**：[GitHub Repository](https://github.com/your-repo)
+- **邮箱联系**：woqu_0716@qq.com
 
-邮箱联系：woqu_0716@qq.com
+---
 
-📄 许可证
-本项目采用 MIT License 许可证。
+## 📄 许可证
+
+本项目采用 **MIT License** 许可证。
 
 如果这个项目对您有帮助，请给我们一个 ⭐️
 
-Made with ❤️ by [LUO]
+---
+
+**Made with ❤️ by [LUO]**
