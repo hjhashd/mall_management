@@ -1,5 +1,5 @@
 <template>
-  <a-layout style="height: 100vh">
+  <a-layout style="height: 100vh; background-color: #f8f9fa;">
     <!-- =============================================================== -->
     <!-- 左侧侧边栏 (Sidebar) -->
     <!-- =============================================================== -->
@@ -14,7 +14,7 @@
       <a-menu
           v-model:selectedKeys="selectedKeys"
           mode="inline"
-          :style="{ borderRight: 0, marginTop: '16px' }"
+          class="custom-menu"
           @click="handleMenuClick"
       >
         <a-menu-item v-for="item in menuItems" :key="item.component">
@@ -34,7 +34,7 @@
       <a-layout-header class="header">
         <div class="header-left">
           <!-- 已集成：返回按钮 -->
-          <a-button type="primary" ghost @click="goBack">
+          <a-button type="text" @click="goBack" class="back-button">
             <template #icon><ArrowLeftOutlined /></template>
             返回
           </a-button>
@@ -64,7 +64,6 @@
                       @click="item.action"
                   >
                     <div class="notification-icon" :class="item.iconClass">
-                      <!-- 确保 Font Awesome 图标库已在项目中引入 -->
                       <i :class="item.icon"></i>
                     </div>
                     <div class="notification-content">
@@ -72,13 +71,12 @@
                       <div class="notification-desc">{{ item.description }}</div>
                       <div class="notification-time">{{ item.time }}</div>
                     </div>
-                    <div class="unread-dot"></div>
+                    <div v-if="item.isUnread" class="unread-dot"></div>
                   </div>
                 </template>
-                <div v-else class="notification-item">
-                  <div class="notification-content" style="text-align: center; color: #999;">
-                    <div class="notification-desc">暂无新消息</div>
-                  </div>
+                <div v-else class="notification-empty">
+                  <img src="https://gw.alipayobjects.com/zos/rmsportal/sAuJeJzSKbUmHfBQRzmZ.svg" alt="no-data" />
+                  <p>暂无新消息</p>
                 </div>
               </div>
               <div class="notification-footer" v-if="totalUnreadCount > 0">
@@ -88,7 +86,7 @@
           </div>
 
           <!-- 动态显示用户头像 -->
-          <a-avatar :src="userInfo?.avatarPath || 'https://placehold.co/100x100/E2E8F0/475569?text=U'" />
+          <a-avatar :src="userInfo?.avatarPath || 'https://placehold.co/100x100/E2E8F0/475569?text=U'" size="large"/>
           <div class="user-info">
             <!-- 动态显示用户名和角色 -->
             <div class="user-name">{{ userInfo?.username }}</div>
@@ -99,14 +97,15 @@
 
       <!-- 页面内容 -->
       <a-layout-content class="content">
-        <!-- 核心修改：动态组件现在由 activeComponent 计算属性控制 -->
-        <component
-            :is="activeComponent"
-            :product-id="editingProductId"
-            @add-product="showReviewForm"
-            @edit-product="showReviewForm"
-            @back-to-list="showProductList"
-        />
+        <div class="content-wrapper">
+          <component
+              :is="activeComponent"
+              :product-id="editingProductId"
+              @add-product="showReviewForm"
+              @edit-product="showReviewForm"
+              @back-to-list="showProductList"
+          />
+        </div>
       </a-layout-content>
     </a-layout>
   </a-layout>
@@ -361,8 +360,6 @@ const allUnreadItems = computed(() => {
           description: truncateMessage(content.message),
           time: formatTime(notif.createdAt),
           timestamp: new Date(notif.createdAt).getTime(),
-          // --- [核心修改] ---
-          // 将点击行为改为打开模态框
           action: () => handleSystemNotificationClick(notif)
         };
       });
@@ -380,8 +377,6 @@ const allUnreadItems = computed(() => {
         description: truncateMessage(msg.content),
         time: formatTime(msg.sendTime),
         timestamp: new Date(msg.sendTime).getTime(),
-        // --- [核心修改] ---
-        // 将点击行为改为打开模态框
         action: () => handleSystemMessageClick(msg)
       }));
 
@@ -447,113 +442,171 @@ onMounted(() => {
 onUnmounted(() => {
   document.removeEventListener('click', handleClickOutside);
 });
-// ===============================================================
-// 结束：集成的消息通知逻辑
-// ===============================================================
 </script>
 
 <style scoped>
-/* 样式保持不变 */
+/* =============================================================== */
+/* 全局与布局优化 (Global & Layout Optimization) */
+/* =============================================================== */
 .sider-shadow {
-  box-shadow: 2px 0 8px rgba(0, 21, 41, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   z-index: 10;
+  border-right: 1px solid #f0f0f0;
 }
+
+/* =============================================================== */
+/* 侧边栏样式 (Sider Styles) */
+/* =============================================================== */
 .logo {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 64px;
   padding: 0 24px;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 8px; /* 为菜单和Logo之间增加间距 */
 }
 .logo-icon {
   font-size: 28px;
-  color: #1890ff;
+  color: #4f46e5; /* 品牌主色 */
+  transition: transform 0.3s ease;
+}
+.logo:hover .logo-icon {
+  transform: rotate(-10deg);
 }
 .logo-title {
   margin: 0 0 0 12px;
   font-size: 20px;
   font-weight: 600;
-  color: #1f2937;
+  color: #1f2937; /* 深色文字，更有质感 */
   vertical-align: middle;
 }
-.ant-menu-item .anticon {
+.custom-menu {
+  border-right: 0;
+  padding: 0 8px; /* 菜单项左右留出空隙 */
+}
+:deep(.ant-menu-item) {
+  margin: 4px 0 !important;
+  width: 100%;
+  border-radius: 8px !important;
+  transition: all 0.2s ease-in-out;
+  padding-left: 16px !important;
+}
+:deep(.ant-menu-item .anticon) {
   font-size: 16px;
   min-width: 14px;
 }
+:deep(.ant-menu-item-selected) {
+  background-color: #eef2ff !important; /* 柔和的选中背景色 */
+  color: #4f46e5 !important; /* 品牌主色 */
+  font-weight: 500;
+}
+:deep(.ant-menu-item-selected .anticon) {
+  color: #4f46e5 !important;
+}
+:deep(.ant-menu-item:not(.ant-menu-item-selected):hover) {
+  background-color: #f4f5f7 !important;
+  color: #1f2937 !important;
+}
+
+/* =============================================================== */
+/* 头部样式 (Header Styles) */
+/* =============================================================== */
 .header {
   background: #fff;
   padding: 0 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid #e5e7eb; /* 更柔和的边框色 */
+  height: 64px;
 }
 .header-left {
   display: flex;
   align-items: center;
   gap: 16px;
 }
+.back-button {
+  color: #6b7280;
+  font-weight: 500;
+}
+.back-button:hover {
+  background-color: #f4f5f7 !important;
+  color: #1f2937 !important;
+}
 .header-title {
   margin: 0;
-  font-size: 18px;
-  font-weight: 500;
-  color: #333;
+  font-size: 20px; /* 稍大一点更醒目 */
+  font-weight: 600;
+  color: #111827;
 }
 .header-right {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 20px; /* 稍微拉开间距 */
+}
+.action-icon {
+  border: none;
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  transition: background-color 0.2s;
+}
+.action-icon:hover {
+  background-color: #f4f5f7;
 }
 .action-icon .anticon {
   font-size: 20px;
+  color: #6b7280;
 }
 .user-info {
-  line-height: 1.2;
+  line-height: 1.4;
+  text-align: left;
 }
 .user-name {
-  font-weight: 500;
-  color: #333;
+  font-weight: 600; /* 加粗用户名 */
+  color: #111827;
 }
 .user-role {
   font-size: 12px;
-  color: #888;
+  color: #9ca3af; /* 柔和的次要文字颜色 */
 }
+
+/* =============================================================== */
+/* 内容区样式 (Content Area Styles) */
+/* =============================================================== */
 .content {
   padding: 24px;
   margin: 0;
-  min-height: 280px;
-  background: #f0f2f5;
+  background: #f8f9fa; /* 使用更柔和的背景色 */
   overflow-y: auto;
 }
-.placeholder-component {
+.content-wrapper {
   background: #fff;
   padding: 24px;
-  border-radius: 8px;
-  border: 1px dashed #d9d9d9;
-  min-height: 500px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  min-height: calc(100vh - 64px - 48px); /* 动态计算最小高度 */
 }
-.placeholder-title {
-  font-size: 24px;
-  font-weight: 600;
-}
-.placeholder-text {
-  margin-top: 8px;
-  color: #666;
-}
+
+
+/* =============================================================== */
+/* 通知下拉框样式 (Notification Dropdown Styles) */
+/* =============================================================== */
 .notification-wrapper {
   position: relative;
 }
 .notification-dropdown {
   position: absolute;
   top: 55px;
-  right: 0;
-  width: 320px;
+  right: -10px; /* 稍微偏移，让箭头对准 */
+  width: 350px; /* 适当加宽 */
   background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   z-index: 1000;
-  margin-top: 8px;
   border: 1px solid #f0f0f0;
+  overflow: hidden; /* 配合圆角 */
 }
 .notification-header {
   display: flex;
@@ -565,26 +618,44 @@ onUnmounted(() => {
 .notification-header h6 {
   margin: 0;
   font-weight: 600;
+  color: #111827;
 }
 .notification-count {
   font-size: 12px;
   color: #888;
+  background-color: #f4f5f7;
+  padding: 2px 8px;
+  border-radius: 12px;
 }
 .notification-list {
-  max-height: 300px;
+  max-height: 320px;
   overflow-y: auto;
+}
+/* 优化滚动条样式 */
+.notification-list::-webkit-scrollbar {
+    width: 6px;
+}
+.notification-list::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 6px;
+}
+.notification-list::-webkit-scrollbar-track {
+    background: #f4f5f7;
 }
 .notification-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* 顶部对齐，防止内容过多时图标居中 */
   padding: 12px 16px;
   border-bottom: 1px solid #f5f5f5;
   cursor: pointer;
   transition: background-color 0.2s;
-  background-color: #f0f7ff;
+  position: relative;
+}
+.notification-item:last-child {
+  border-bottom: none;
 }
 .notification-item:hover {
-  background-color: #e6f7ff;
+  background-color: #f8f9fa;
 }
 .notification-icon {
   width: 36px;
@@ -596,60 +667,69 @@ onUnmounted(() => {
   margin-right: 12px;
   flex-shrink: 0;
 }
-.notification-icon.success {
-  background-color: #e8f5e9;
-  color: #4caf50;
-}
-.notification-icon.warning {
-  background-color: #fff3e0;
-  color: #ff9800;
-}
-.notification-icon.info {
-  background-color: #e3f2fd;
-  color: #2196f3;
-}
-.notification-icon.danger {
-  background-color: #ffebee;
-  color: #f44336;
-}
+/* 更新图标颜色，更柔和 */
+.notification-icon.success { background-color: #e0f2f1; color: #009688; }
+.notification-icon.warning { background-color: #fff8e1; color: #ffab00; }
+.notification-icon.info { background-color: #e3f2fd; color: #2196f3; }
+.notification-icon.danger { background-color: #ffebee; color: #f44336; }
 .notification-content {
   flex: 1;
   min-width: 0;
 }
 .notification-title {
   font-weight: 500;
-  margin-bottom: 2px;
+  margin-bottom: 4px; /* 增加标题和描述的间距 */
   color: #333;
 }
 .notification-desc {
   font-size: 13px;
   color: #555;
   white-space: normal;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 .notification-time {
   font-size: 12px;
   color: #999;
-  margin-top: 2px;
+  margin-top: 4px;
 }
 .unread-dot {
   width: 8px;
   height: 8px;
-  background-color: #ff4757;
+  background-color: #4f46e5; /* 使用品牌主色 */
   border-radius: 50%;
   flex-shrink: 0;
   margin-left: 8px;
+  align-self: center;
+}
+.notification-empty {
+  text-align: center;
+  padding: 40px 0;
+  color: #999;
+}
+.notification-empty img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 16px;
 }
 .notification-footer {
-  padding: 12px 16px;
+  padding: 8px;
   text-align: center;
   border-top: 1px solid #eee;
+  background-color: #f8f9fa;
 }
 .view-all-btn {
   background: none;
   border: none;
-  color: #1890ff;
+  color: #4f46e5;
   cursor: pointer;
   font-size: 14px;
+  font-weight: 500;
+  width: 100%;
+  padding: 8px 0;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+.view-all-btn:hover {
+  background-color: #eef2ff;
 }
 </style>
