@@ -1,6 +1,22 @@
 # Mall Management System | 商城管理系统
 # 后端链接如下：https://github.com/hjhashd/mall_spring
 
+### 前端技术栈
+
+| 技术 | 版本 | 描述 |
+|------|------|------|
+| Vue 3 | 3.5.18 | 渐进式JavaScript框架 |
+| Vite | 4.0.0 | 下一代前端构建工具 |
+| Pinia | 3.0.3 | Vue 3状态管理 |
+| Vue Router | 4.5.1 | 官方路由管理器 |
+| Ant Design Vue | 4.2.6 | 企业级UI组件库 |
+| ECharts | 5.6.0 | 数据可视化图表库 |
+| Axios | 1.11.0 | HTTP请求库 |
+| Day.js | 1.11.13 | 轻量级日期处理库 |
+| Bootstrap | 5.3.7 | CSS框架 |
+| Animate.css | 4.1.1 | CSS动画库 |
+| Font Awesome | 4.7.0 | 图标库 |
+
 ## 📋 项目概述
 
 **Mall Management System** 是一个基于 Vue 3 的现代化商城管理系统，提供完整的电商后台管理解决方案。该系统采用前后端分离架构，为电商企业提供商品管理、订单处理、用户管理、数据分析等全方位的后台管理功能。系统设计注重用户体验和操作效率，支持实时数据监控和智能化管理。
@@ -137,22 +153,6 @@
 ---
 
 ## 🏗️ 技术架构
-
-### 前端技术栈
-
-| 技术 | 版本 | 描述 |
-|------|------|------|
-| Vue 3 | 3.5.18 | 渐进式JavaScript框架 |
-| Vite | 4.0.0 | 下一代前端构建工具 |
-| Pinia | 3.0.3 | Vue 3状态管理 |
-| Vue Router | 4.5.1 | 官方路由管理器 |
-| Ant Design Vue | 4.2.6 | 企业级UI组件库 |
-| ECharts | 5.6.0 | 数据可视化图表库 |
-| Axios | 1.11.0 | HTTP请求库 |
-| Day.js | 1.11.13 | 轻量级日期处理库 |
-| Bootstrap | 5.3.7 | CSS框架 |
-| Animate.css | 4.1.1 | CSS动画库 |
-| Font Awesome | 4.7.0 | 图标库 |
 
 ### 架构模式
 
