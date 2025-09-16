@@ -75,28 +75,25 @@
           <div v-for="(message, index) in messages" :key="index" :class="[$style.message, message.role === 'user' ? $style.userMessage : '']">
             <!-- 【修改】显示AI和用户的头像图片 -->
             <div :class="[$style.avatarContainer, message.role === 'assistant' ? $style.aiAvatar : $style.userAvatar]">
-              <img v-if="message.role === 'assistant'" src="https://chat.deepseek.com/favicon.svg" alt="AI Avatar" />
+              <img v-if="message.role === 'assistant'" src="http://localhost:8080/uploads/avatar/deepseek.png" alt="AI Avatar" />
               <template v-else>
                 <img v-if="userStore.userInfo?.avatarPath" :src="userStore.userInfo.avatarPath" alt="User Avatar" />
                 <span v-else>{{ userStore.userInfo?.username?.charAt(0).toUpperCase() || 'U' }}</span>
               </template>
             </div>
             <div :class="$style.messageContent">
-              <div :class="[$style.bubble, message.role === 'assistant' ? $style.aiBubble : $style.userBubble]" v-html="message.content"></div>
-            </div>
-          </div>
-
-          <!-- 优化加载状态显示 -->
-          <div v-if="isLoading" :class="[$style.message, $style.aiMessage]">
-            <div :class="[$style.avatarContainer, $style.aiAvatar]">
-              <img src="https://chat.deepseek.com/favicon.svg" alt="AI Avatar" />
-            </div>
-            <div :class="$style.messageContent">
-              <div :class="[$style.bubble, $style.aiBubble, $style.typingIndicator]">
-                <span></span><span></span><span></span>
+              <div :class="[$style.bubble, message.role === 'assistant' ? $style.aiBubble : $style.userBubble]">
+                <!-- 【FIX for Double Loader】 Conditionally show typing indicator IN the bubble -->
+                <div v-if="isLoading && message.role === 'assistant' && !message.rawContent" :class="$style.typingIndicator">
+                  <span></span><span></span><span></span>
+                </div>
+                <div v-else v-html="message.content"></div>
               </div>
             </div>
           </div>
+
+          <!-- 【REMOVED】The separate loading indicator block is removed to prevent double loaders. -->
+
         </div>
 
         <div :class="$style.inputArea">
@@ -242,7 +239,25 @@ const setupWebSocketListeners = () => {
     if (!currentConversationId.value) {
       currentConversationId.value = data.conversationId;
     }
-    fetchHistory();
+
+    // 【FIX for Summary Delay】
+    // Ideal Fix: Backend should send summary in 'complete' message for instant update.
+    // This frontend code handles that case.
+    if (data.summary && data.conversationId) {
+      const sessionInHistory = historyList.value.find(s => s.conversationId === data.conversationId);
+      if (sessionInHistory) {
+        // Update existing summary
+        sessionInHistory.summary = data.summary;
+      } else {
+        // This was a new chat, refetch the list to get the new item.
+        fetchHistory();
+      }
+    } else {
+      // Fallback: If backend doesn't send summary, just refetch history.
+      // This might still show the old title due to the race condition.
+      fetchHistory();
+    }
+
     wsChat.disconnect();
   });
 
@@ -269,15 +284,13 @@ const sendMessage = async () => {
   isLoading.value = true;
   scrollToBottom();
 
-  // 确保 assistant 的消息占位符已添加
+  // 【FIX for Double Loader】 This placeholder is now used for the inline typing indicator
   messages.value.push({role: 'assistant', content: '', rawContent: ''});
   scrollToBottom();
-
 
   try {
     // 如果未连接，则先连接
     if (!wsChat.isConnected) {
-      // 如果是新对话 (currentConversationId 为 null)，则生成一个基于时间的临时 ID
       const conversationIdToSend = currentConversationId.value || `web_${Date.now()}`;
 
       await wsChat.connect({
@@ -804,6 +817,7 @@ const renderMarkdown = (content) => {
 .typingIndicator {
   display: flex;
   align-items: center;
+  padding: 0.2rem 0; /* Add some vertical padding */
 }
 
 /* 【优化】加载中气泡的呼吸动画 */
@@ -896,4 +910,3 @@ const renderMarkdown = (content) => {
   }
 }
 </style>
-
