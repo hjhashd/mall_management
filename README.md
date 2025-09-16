@@ -1,5 +1,21 @@
-# Mall Management System | 商城管理系统 - 完整文档
+# Mall Management System | 商城管理系统
 # 后端链接如下：https://github.com/hjhashd/mall_spring
+
+### 前端技术栈
+
+| 技术 | 版本 | 描述 |
+|------|------|------|
+| Vue 3 | 3.5.18 | 渐进式JavaScript框架 |
+| Vite | 4.0.0 | 下一代前端构建工具 |
+| Pinia | 3.0.3 | Vue 3状态管理 |
+| Vue Router | 4.5.1 | 官方路由管理器 |
+| Ant Design Vue | 4.2.6 | 企业级UI组件库 |
+| ECharts | 5.6.0 | 数据可视化图表库 |
+| Axios | 1.11.0 | HTTP请求库 |
+| Day.js | 1.11.13 | 轻量级日期处理库 |
+| Bootstrap | 5.3.7 | CSS框架 |
+| Animate.css | 4.1.1 | CSS动画库 |
+| Font Awesome | 4.7.0 | 图标库 |
 
 ## 📋 项目概述
 
@@ -21,6 +37,9 @@
 
 #### 登录界面
 <img width="2559" height="1389" alt="image" src="https://github.com/user-attachments/assets/7217df40-02d7-4248-92a3-27efe9f7f6f7" />
+
+#### AI智能助手界面
+<img width="2559" height="1390" alt="image" src="https://github.com/user-attachments/assets/f05bd451-966e-4759-8c29-59c8632442d4" />
 
 
 #### 仪表板总览
@@ -86,6 +105,16 @@
 
 ## ✨ 功能特性
 
+### 🤖 AI智能助手 ⭐ **特色功能**
+- **DeepSeek大语言模型**：集成先进的AI技术，提供智能对话体验
+- **实时流式对话**：基于WebSocket的实时消息传输，支持流式回复
+- **会话历史管理**：自动保存聊天记录，支持多会话切换
+- **智能摘要生成**：自动为会话生成简洁的标题摘要
+- **Markdown渲染**：支持富文本显示，包括代码高亮、表格、列表等
+- **响应式设计**：优雅的聊天界面，支持移动端适配
+- **业务咨询助手**：可协助解答商城管理相关问题
+- **个性化体验**：记住用户偏好，提供定制化服务
+- 
 ### 🛍️ 商品管理
 - **商品分类管理**：支持多级分类，树形结构展示
 - **商品列表管理**：批量操作、状态管理、库存监控
@@ -124,22 +153,6 @@
 ---
 
 ## 🏗️ 技术架构
-
-### 前端技术栈
-
-| 技术 | 版本 | 描述 |
-|------|------|------|
-| Vue 3 | 3.5.18 | 渐进式JavaScript框架 |
-| Vite | 4.0.0 | 下一代前端构建工具 |
-| Pinia | 3.0.3 | Vue 3状态管理 |
-| Vue Router | 4.5.1 | 官方路由管理器 |
-| Ant Design Vue | 4.2.6 | 企业级UI组件库 |
-| ECharts | 5.6.0 | 数据可视化图表库 |
-| Axios | 1.11.0 | HTTP请求库 |
-| Day.js | 1.11.13 | 轻量级日期处理库 |
-| Bootstrap | 5.3.7 | CSS框架 |
-| Animate.css | 4.1.1 | CSS动画库 |
-| Font Awesome | 4.7.0 | 图标库 |
 
 ### 架构模式
 
@@ -428,13 +441,16 @@ CMD ["nginx", "-g", "daemon off;"]
 
 ### 环境变量配置
 
-```env
-# .env.production
-VITE_API_BASE_URL=https://api.yourapi.com
-VITE_WS_URL=wss://ws.yourapi.com
 ```
+# DeepSeek API配置
+ai:
+  api:
+    key: your_apikey
+    url:  https://api.deepseek.com/v1/chat/completions
+    model: deepseek-chat
+    max_tokens: 4096
 
----
+--
 
 ## 🤝 贡献指南
 
@@ -468,8 +484,6 @@ git push origin feature/your-feature-name
 ---
 
 ## 📞 联系方式
-
-- **项目地址**：[GitHub Repository](https://github.com/your-repo)
 - **邮箱联系**：woqu_0716@qq.com
 
 ---
